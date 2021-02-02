@@ -1,12 +1,15 @@
-<main class="h-screen w-screen bg-black">
-  <div class="p-8 h-full flex flex-col items-center justify-center">
-    <img class=""
-      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrMvOBCGBrvB59dg7QgvqJhWrDs7A4QaaP6w&usqp=CAU"
-      alt="Scan face">
-    <button (click)="scan()" class="mt-8 px-10 py-3 bg-white">Unlock</button>
-  </div>
-  <div [class]="{'hidden': !show}" class="absolute flex right-0 top-0 bg-white">
-    <video #video autoplay muted [srcObject]="stream" class="h-56"></video>
-    <canvas #canvas class="absolute h-56"></canvas>
+<main class="h-screen w-screen">
+  <div class="p-8 h-full flex flex-col items-center justify-center space-y-8">
+    <h2>Verify your identity</h2>
+    <form [formGroup]="form" (submit)="onLogin()"
+      class="relative h-14 flex items-center rounded-md border shadow-md border-gray-900">
+      <input type="text" formControlName="username" placeholder="Username"
+        class="h-14 px-3 pr-14 bg-transparent focus:outline-none">
+      <button class="absolute right-0 top-0 w-10 h-14 flex items-center justify-center">
+        <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </button>
+    </form>
   </div>
 </main>
