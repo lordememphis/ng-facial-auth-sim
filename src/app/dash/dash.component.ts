@@ -78,6 +78,7 @@ export class DashComponent implements OnInit {
           if (!detectionsFound) {
             clearInterval(detect);
             clearInterval(checkIsActive);
+            this.stream.getTracks().forEach((track) => track.stop());
             this.router.navigate(['login']);
             this.show = false;
           }
