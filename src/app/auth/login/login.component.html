@@ -3,6 +3,10 @@
     <img class=""
       src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrMvOBCGBrvB59dg7QgvqJhWrDs7A4QaaP6w&usqp=CAU"
       alt="Scan face">
-    <button class="mt-8 px-10 py-3 bg-white">Unlock</button>
+    <button (click)="scan()" class="mt-8 px-10 py-3 bg-white">Unlock</button>
+  </div>
+  <div [class]="{'hidden': !show}" class="absolute flex right-0 top-0 bg-white">
+    <video #video autoplay muted [srcObject]="stream" class="h-56"></video>
+    <canvas #canvas class="absolute h-56"></canvas>
   </div>
 </main>
